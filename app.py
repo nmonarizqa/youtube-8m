@@ -9,7 +9,6 @@ def homepage():
     return """
     <h1>Your Beauty Guru Recommendation</h1>
     <p>This app is in progress. Here are the initial explorations</p>
-    <img src="http://loremflickr.com/600/400" />
     """.format(time=the_time)
 
 if __name__ == '__main__':
