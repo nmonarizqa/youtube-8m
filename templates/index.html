@@ -9,7 +9,7 @@
   <div class="container" id="explanation" style="margin: 40px;">
     <div class="row">
       <h1>Beauty Guru Recommendation System</h1>
-      <span>TDI Capstone Proposal</span>
+      <span>TDI Capstone Proposal | Author: Nurvirta</span>
     </div>
     <div class="row">
       <h2>Background</h2>
@@ -47,6 +47,11 @@
        <p>The second column (second most dark/light) is most likely where the skintone at. As we can see here, because the nature of skintone, we can not really "divide" the colors into some categories.
          Therefore, we are planning to manually set the class for skintone and hand-labeled some images as training data.
        Then, we are going to use deep learning to classify the training images.</p>
+
+       <p>Also, here is little exploration about how beauty youtuber write their video descriptions</p>
+       <img src="{{ url_for('static', filename='img/wordcloud.png') }}">
+       <p>As we can see here, lots of url shortener. Beauty youtuber tend to mention the products they use in the video and put the affiliate link.
+         As the videos that explicitely mentions "foundation shade" are not that much, we are going to use this anchor to scrap the foundation shade and match them with the picture, so that we can get additional attribute.</p>
 
     </div>
 
