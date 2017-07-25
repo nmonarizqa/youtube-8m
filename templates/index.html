@@ -1,0 +1,55 @@
+<html>
+<head>
+  <title>Beauty Guru Recommender</title>
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet">
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</head>
+<body>
+  <div class="container" id="explanation" style="margin: 40px;">
+    <div class="row">
+      <h1>Beauty Guru Recommendation System</h1>
+      <span>TDI Capstone Proposal</span>
+    </div>
+    <div class="row">
+      <h2>Background</h2>
+      <p>In this 21st century, we rely so much on YouTube to know the latest trends and tutorials on how to do bunch of things. As women, most of us trust beauty guru on YouTube to get reviews on many cosmetics and how they look like when it is put on (color, quality, etc). However, sometimes when we try them on our face, the lipstick color, blush color, foundation shade are not what we were expecting because we watched the "wrong" youtuber: they have either lighter or darker skin tone than us. Therefore, I want to create an app to recommend the perfect beauty youtuber for each skin tone.</p>
+      <h2>How the app works</h2>
+      <p>
+        <ol>
+          <li>User uploads the photo of their face, or input the brand of foundation that they usually use.</li>
+          <li>The pic will go through the system to get the recommendation (possibly neural networks)</li>
+          <li>The output will be the list of their matching beauty youtubers, that have the most similar skin tone to theirs.</li>
+        </ol>
+      </p>
+      <h2>Methodology</h2>
+
+      <p>
+        <ol>
+          <li>Gather the youtube video data from https://research.google.com/youtube8m/download.html</li>
+          <li>Run an exploration with clustering to see how many skin tones we can cluster</li>
+          <li>Use NLP to take a look at the video description to get foundation shades that the beauty gurus use</li>
+          <li>Match the pictures with foundation shade --> this will be the attributes (img and foundation shade)</li>
+          <li>Use the result from (2-4) to label training data</li>
+          <li>Training the data using deep learning</li>
+          <li>Test the data</li>
+          <li> Re-train if necessary</li>
+          <li>Build app using the trained model</li>
+        </ol>
+      </p>
+
+      <h2>Initial Exploration</h2>
+      <p>I gathered all thumbnail videos from <a href="https://research.google.com/youtube8m/">Youtube 8M dataset</a> under cosmetics tag.
+        Then crop the pictures square and centered, where most likely we can get the face.</p>
+        <img src="{{ url_for('static', filename='img/face.png') }}">
+       <p>I used KMeans clustering with k=3 to get the "dominant colors" for each image. Hopefully, we can get an idea of the distribution of the skintone.</p>
+       <img src="{{ url_for('static', filename='img/dominant_colors.png') }}">
+       <p>The second column (second most dark/light) is most likely where the skintone at. As we can see here, because the nature of skintone, we can not really "divide" the colors into some categories.
+         Therefore, we are planning to manually set the class for skintone and hand-labeled some images as training data.
+       Then, we are going to use deep learning to classify the training images.</p>
+
+    </div>
+
+  </div>
+</body>
+</html>
