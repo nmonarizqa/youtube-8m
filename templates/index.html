@@ -24,6 +24,9 @@
           <li>The pic will go through the system to get the recommendation (possibly neural networks)</li>
           <li>The output will be the list of their matching beauty youtubers, that have the most similar skin tone to theirs.</li>
         </ol>
+        <div class="col-sm-12">
+          <img src="{{ url_for('static', filename='img/mockup.JPG') }}">
+        </div>
       </p>
       <h2>Methodology</h2>
       <h3>0. Data Collection</h3>
@@ -34,7 +37,9 @@
         <li>Run Clustering to get some clusters for classification classes</li>
         <li>Match the picture with foundation shade mentioned in the description box, if any</li>
         <li>Manual labelling based on MAC foundation shade</li>
-        <img src="{{ url_for('static', filename='img/mac.jpg') }}">
+        <div class="col-sm-12">
+          <img src="{{ url_for('static', filename='img/mac.jpg') }}">
+        </div>
       </ul>
       <h3>2. Train the data</h3>
       <p>After we figure out how to label the pictures properly, the next step is to train the data. There are two methods that are going to be applied</p>
@@ -58,7 +63,9 @@
         Then crop the pictures square and centered, where most likely we can get the face.</p>
         <img src="{{ url_for('static', filename='img/face.png') }}">
        <p>I used KMeans clustering with k=3 to get the "dominant colors" for each image. Hopefully, we can get an idea of the distribution of the skintone.</p>
-       <img src="{{ url_for('static', filename='img/dominant_colors.png') }}">
+       <div class="col-sm-12">
+         <img src="{{ url_for('static', filename='img/dominant_colors.png') }}">
+        </div>
        <p>The second column (second most dark/light) is most likely where the skintone at. As we can see here, because the nature of skintone, we can not really "divide" the colors into some categories.</p>
        <p>The elbow plot below also explain that other than two clusters, there are not many classes we can gather from the clustering</p>
        <img src="{{ url_for('static', filename='img/elbow.png') }}">
@@ -66,7 +73,9 @@
         <p> Therefore, we are planning to manually set the class for skintone and hand-labeled some images as training data.</p>
 
        <p>Also, here is little exploration about how beauty youtuber write their video descriptions</p>
+       <div class="col-sm-12">
        <img src="{{ url_for('static', filename='img/wordcloud.png') }}">
+      </div>
        <p>As we can see here, lots of url shortener. Beauty youtuber tend to mention the products they use in the video and put the affiliate link.
          As the videos that explicitely mentions "foundation shade" are not that much, we are going to use this anchor to scrap the foundation shade and match them with the picture, so that we can get additional attribute.</p>
 
