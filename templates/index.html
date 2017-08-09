@@ -8,10 +8,13 @@
 <body>
   <div class="container" id="explanation" style="margin: 40px;">
     <div class="row">
-      <h1>Beauty Guru Recommendation System</h1>
-      <span>TDI Capstone Proposal | Author: Nurvirta</span>
+      <div class="col-sm-6 col-sm-offset-3">
+        <h1>Beauty Guru Recommendation System</h1>
+        <span>TDI Capstone Proposal | Author: Nurvirta</span>
+      </div>
     </div>
     <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
       <h2>Background</h2>
       <p>In this 21st century, we rely so much on YouTube to know the latest trends and tutorials on how to do bunch of things. As women, most of us trust beauty guru on YouTube to get reviews on many cosmetics and how they look like when it is put on (color, quality, etc). However, sometimes when we try them on our face, the lipstick color, blush color, foundation shade are not what we were expecting because we watched the "wrong" youtuber: they have either lighter or darker skin tone than us. Therefore, I want to create an app to recommend the perfect beauty youtuber for each skin tone.</p>
       <h2>How the app works</h2>
@@ -92,6 +95,7 @@
       </ol>
       <p>We collected 2000 pictures, 1000 for training (200 each class), 1000 for testing (also 200 each class). </p>
       <p>We then applied KNN with k=1 with the color histogram as its features (512-d feature vector). We got 27.17% accuracy with 19.5% precision, which is not that good and looks rather arbitrary. Thus, the next step will be to scrap foundation shade on description box to get more valid result.</p>
+    </div>
     </div>
 
   </div>
